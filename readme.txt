@@ -19,15 +19,17 @@ Features of MERN project:
 Frontend:
 
 1. Pages for Login,Signup
-2. Reusable components like Button,InputText etc
-3. Dshboard for user
-4. Use of light theming and good font for awesome look
-5. Stick navigation bar with hoverable links with icons
-6  Routing to switching between Pages
-7. State management using React redxu tookit 
-8. Api call using rtk query for seamless response
-9. Responsive design on all devices
-10. Style using tailwind css
+2. Auto detect user location during Signup
+3. Reusable components like Button,InputText etc
+4. Dshboard for user
+5. Use of light theming and good font for awesome look
+6. Stick navigation bar with hoverable links with icons
+7  Routing to switching between Pages
+8. State management using React redxu tookit 
+9. Api call using rtk query for seamless response
+10. Responsive design on all devices
+11. Style using tailwind css.
+12. add otp input field but not function as of now (as per assignment)
 
 
 
