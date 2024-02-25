@@ -50,27 +50,31 @@ const Login = () => {
   return (
     <>
       <Link
-        className="font-bold bg-gray-300 rounded-sm px-2 py-1 absolute left-[10%] top-[5%] md:left-[30%] md:top-[5%]"
+        className="font-extrabold bg-lightRed1 text-darkRed2 rounded-2xl p-3 absolute left-[10%] top-[5%] md:left-[30%] md:top-[5%]"
         to="/"
       >
         <img src={arrow} alt="arrowleft" />
       </Link>
 
-      <div className="flex flex-col items-center min-h-screen pt-6  mt-5 sm:justify-center sm:pt-0">
-        <div className="flex items-center flex-col mt-4 md:mt-0">
-          <Link href="/">
-            <h3 className="text-5xl font-bold text-gray-800 uppercase">
-              Login in
-            </h3>
-          </Link>
-          <p className="text-md text-gray-800 uppercase font-bold">
-            Hey Welcome back
-          </p>
+      <div
+        className="flex flex-col items-center min-h-screen  mt-32 
+      sm:justify-center sm:pt-0"
+      >
+        <div className="flex flex-col gap-2">
+          <h3 className="text-6xl md:text-6xl tracking-wider font-bold py-2 ">
+            Log in to your
+          </h3>
+          <span
+            className="text-6xl md:text-6xl tracking-wider 
+                font-bold text-center py-2"
+          >
+            account
+          </span>
         </div>
 
-        <div className="w-full px-6 py-4 mt-6 overflow-hidden sm:max-w-md ">
+        <div className="w-full px-6 py-4 mt-4 sm:max-w-md ">
           <form onSubmit={submitHandler}>
-            <div className="mt-4">
+            <div className="w-full mt-4">
               <InputText
                 type={"text"}
                 name={"email"}
@@ -86,7 +90,7 @@ const Login = () => {
                 </p>
               )}
             </div>
-            <div className="mt-4">
+            <div className="w-full mt-4">
               <InputText
                 type={"password"}
                 name={"password"}
@@ -103,15 +107,27 @@ const Login = () => {
               )}
             </div>
 
-            <div className="flex flex-col items-center justify-end mt-8">
-              <Button>{isLoading ? "Logging.." : "Log in"}</Button>
+            <Link
+              className="text-Grey1 tracking-wider text-xl 
+                           font-medium cursor-pointer py-2"
+              to="/signup"
+            >
+              Forget Password ?
+            </Link>
+
+            <Button>{isLoading ? "Logging.." : "Sign in"}</Button>
+            <p className="text-darkGrey2 text-center tracking-wide pt-14 text-xl md:text-2xl font-semibold opacity-90">
+              Doesn't have an account ?{" "}
               <Link
-                className="text-end tracking-wider text-sm font-medium py-4"
+                className="text-darkRed1 text-center 
+                       text-xl md:text-2xl 
+                       font-extrabold 
+                            underline cursor-pointer"
                 to="/signup"
               >
-                Don't have an account signup?
+                Sign up
               </Link>
-            </div>
+            </p>
           </form>
         </div>
       </div>

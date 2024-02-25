@@ -29,17 +29,21 @@ const Navbar = () => {
 
   return (
     <div className="w-full fixed bottom-0 left-0 z-[999]">
-      <div className="w-full flex items-center justify-center text-gray-800  bg-gray-50  py-4 px-6">
+      <div className="w-full flex items-center justify-center text-gray-800  bg-gray-50 px-0 md:px-6">
         {userInfo && (
-          <ul className="flex gap-5 md:gap-12 uppercase items-center  transition-all duration-500 ease-in">
+          <ul className="flex gap-5 md:gap-12 uppercase items-center py-2  transition-all duration-500 ease-in">
             {linksData?.map((item, i) => (
               <Link
                 key={i}
                 to={item.url}
-                className=" flex items-center flex-col gap-1 text-gray-800 hover:scale-105 duration-500"
+                className=" flex items-center flex-col gap-1   text-darkGrey2 hover:scale-105 duration-500"
               >
-                <img src={item.iconUrl} alt={item.title} />
-                <span className="text-sm tracking-wider font-bold text-gray-800 opacity-70 capitalize">
+                <img
+                  className="h-8 h-8 text-darkGrey1 opacity-50"
+                  src={item.iconUrl}
+                  alt={item.title}
+                />
+                <span className="text-sm md:text-md tracking-widest font-bold text-darkGrey1 capitalize">
                   {item.title}
                 </span>
               </Link>

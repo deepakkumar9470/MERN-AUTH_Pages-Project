@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Questrial&display=swap");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -14,7 +14,7 @@ html {
 }
 
 body {
-  font-family: "Nunito Sans", sans-serif;
+  font-family: "Questrial", sans-serif;
   overflow-x: hidden;
 }
 
@@ -23,4 +23,13 @@ a {
 }
 li {
   list-style: none;
+}
+
+.slick-slider {
+  margin: 0 -1.5rem;
+}
+.slick-slide {
+  text-align: center;
+  margin-right: 0.5rem;
+  margin-left: 0.5rem;
 }

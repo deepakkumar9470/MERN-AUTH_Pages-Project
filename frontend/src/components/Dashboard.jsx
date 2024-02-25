@@ -10,6 +10,9 @@ import { catCards, categories } from "../data/data";
 const Dashboard = () => {
   const { userInfo } = useSelector((state) => state.auth);
   var settings = {
+    className: "center",
+    centerMode: true,
+    centerPadding: "60px",
     dots: true,
     infinite: true,
     slidesToShow: 3,
@@ -22,7 +25,7 @@ const Dashboard = () => {
         breakpoint: 1024,
         settings: {
           slidesToShow: 3,
-          slidesToScroll: 3,
+          slidesToScroll: 1,
           infinite: true,
           dots: true,
         },
@@ -33,6 +36,7 @@ const Dashboard = () => {
           slidesToShow: 2,
           slidesToScroll: 2,
           initialSlide: 2,
+          dots: true,
         },
       },
       {
@@ -40,6 +44,7 @@ const Dashboard = () => {
         settings: {
           slidesToShow: 1,
           slidesToScroll: 1,
+          dots: true,
         },
       },
     ],
@@ -48,14 +53,16 @@ const Dashboard = () => {
   return (
     <>
       <Navbar />
-      <div className="w-full px-6 mx-auto flex items-center gap-2 justify-between md:px-20 py-1 mb-4 md:mb-0 md:py-5">
-        <Link className="text-3xl tracking-wide text-gray-600 font-bold" to="/">
+      <div className="w-full px-8 mx-auto flex items-center gap-2 justify-between md:px-20 py-4 mb-4 md:mb-0 md:py-5">
+        <Link
+          className="text-4xl tracking-wider text-darkRed1 font-extrabold"
+          to="/"
+        >
           Wedsurf
         </Link>
 
         <div className="flex items-center gap-1 relative">
           <User className="w-[50px] h-[50px] p-2 rounded-full bg-gray-300 cursor-pointer" />
-
           <p className="flex items-center justify-center rounded-full bg-gray-100 w-[25px] h-[25px] text-xl text-gray-700 font-bold absolute right-[-20%] top-[50%] cursor-pointer">
             {userInfo ? userInfo?.name.slice(0, 1) : "D"}
           </p>
@@ -66,25 +73,35 @@ const Dashboard = () => {
       <div className="w-full px-5 md:px-0 md:w-[60%] mx-auto flex rounded">
         <input
           type="text"
-          className="w-full px-4 py-4 tracking-wider text-md text-gray-900 font-bold bg-gray-300  rounded-s-md  focus:outline-none"
-          placeholder="Search events, banquet,wedding....."
+          className="w-full px-4 py-4 md:py-6 tracking-wider bg-lightGrey1 text-2xl 
+                     placeholder:text-darkGrey1 placeholder:text-2xl 
+                      text-darkGrey1 font-medium  rounded-s-2xl placeholder:text-2xl 
+                      placeholder:text-darkGrey1 placeholder:text-xl md:placeholder:text-2xl   
+                      focus:outline-none"
+          placeholder="Search events, banquet...."
         />
-        <button className="px-4 py-4 text-gray-100 bg-gray-800 rounded-md  ">
-          <Search />
+        <button className="px-4 md:px-6 py-2 md:py-4 text-lightGrey1 bg-darkRed2 rounded-2xl  ">
+          <Search className="w-12 h-12 md:w-10 md:h-10" />
         </button>
       </div>
+
       {/* Slider */}
-      <div className="flex items-center justify-center mx-auto overflow-x-hidden overflow-y-hidden">
+      <div
+        className="flex items-center justify-center mx-auto mt-10 md:mt-14
+                      overflow-x-hidden overflow-y-hidden"
+      >
         <Slider
           {...settings}
-          className=" max-w-[1000px] gap-2 w-full py-3 px-12 mt-10"
+          className="w-full h-[40vh]  gap-2 py-3 px-4 md:px-20"
         >
           {categories.map((item, i) => (
             <div kay={i} className="flex items-center gap-6">
-              <div className="flex items-center justify-center bg-gradient-to-r from-slate-200 to-zinc-800 rounded-2xl w-[300px] h-[200px] p-2 cursor-pointer">
-                <h3 className="text-2xl tracking-widest text-center  text-white font-semibold flex items-center justify-center">
-                  {item}
-                </h3>
+              <div className="w-full h-full flex items-center justify-center ml-2 mr-2">
+                <img
+                  className="w-full h-full object-contain rounded-2xl"
+                  src={item.imageUrl}
+                  alt={item.title}
+                />
               </div>
             </div>
           ))}
@@ -92,18 +109,40 @@ const Dashboard = () => {
       </div>
 
       {/* Categories */}
-      <div className="flex flex-col items-center justify-center gap-5 py-6">
-        <p className="text-lg text-gray-800 font-bold py-4 items-start">
+      <div className="flex flex-col items-center justify-center gap-5 py-2 mb-28">
+        <p className="text-4xl text-darkGrey2 font-extrabold py-4">
           Dive in
         </p>
+
         <div className="grid grid-cols-2 md:grid-cols-2 gap-4">
           {catCards.map((item, i) => (
-            <div className="flex items-center flex-col gap-2 justify-center bg-gradient-to-r from-black via-gray-900 to-neutral-500 rounded-2xl w-[200px] h-[200px] md:w-[300px] md:h-[300px] p-2 cursor-pointer">
-              <p className="text-3xl tracking-wide text-center  text-white font-bold flex items-center justify-center">
-                {item}
+            <div
+              key={item.title}
+              className="flex items-center flex-col gap-x-0 gap-y-4  bg-darkRed3 
+              justify-center rounded-3xl w-[220px] h-[220px] md:w-[320px] md:h-[320px] 
+             cursor-pointer relative overflow-hidden px-2 md:px-0"
+            >
+              <img
+                className=":w-full h-auto absolute top-[10%] block left-[-35%] 
+              object-cover"
+                src={item.imageUrl}
+                alt={item.title}
+              />
+              <p
+                className="text-4xl tracking-wide w-[200px]
+                          text-center  text-whiteClr 
+                            font-semibold flex items-center 
+                            justify-center absolute top-6 md:top-12 right-0 md:right-2"
+              >
+                {item.title}
               </p>
-              <span className="text-md tracking-wide text-center  text-white font-bold flex items-center justify-center">
-                {item}
+              <span
+                className="text-lg tracking-wide 
+                      text-center  text-whiteClr 
+                        font-medium flex items-center 
+                        justify-center absolute top-[50%] md:top-[45%] right-2 md:right-4"
+              >
+                {item.desc}
               </span>
             </div>
           ))}

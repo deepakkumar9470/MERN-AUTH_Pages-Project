@@ -82,23 +82,21 @@ const SignUp = () => {
   return (
     <>
       <Link
-        className="font-bold bg-gray-300 rounded-sm px-2 py-1 absolute
-        left-[10%] top-[5%] md:left-[25%] md:top-[5%]"
+        className="font-extrabold bg-lightRed1 text-darkRed2 rounded-2xl p-3 absolute left-[10%] top-[5%] md:left-[30%] md:top-[5%]"
         to="/"
       >
         <img src={arrow} alt="arrowleft" />
       </Link>
-      <div className="min-h-screen py-10 mt-8 flex flex-col items-center justify-center">
-        <div className="flex items-center flex-col">
-          <Link href="/">
-            <h3 className="text-5xl tracking-widest font-bold text-gray-800 uppercase">
-              Sign up
-            </h3>
-          </Link>
-          <p className="text-sm text-gray-800 uppercase font-bold">
-            and let us plan your events
-          </p>
+      <div className="min-h-screen mt-32 flex flex-col items-center justify-center">
+        <div className="flex flex-col gap-0 md:gap-2">
+          <h3 className="text-4xl md:text-6xl tracking-wider font-bold py-2 ">
+            Create Account
+          </h3>
+          <span className="text-4xl md:text-6xl text-center tracking-wider font-bold py-2 ">
+            with Email
+          </span>
         </div>
+
         <p>
           Location:{" "}
           {latitude !== null && longitude !== null
@@ -118,6 +116,7 @@ const SignUp = () => {
                 onInputChange={handleChange}
                 labelFor="name"
                 title="Name"
+                placeHolder="First name"
               />
               {errors.name && (
                 <p className="text-sm text-red-400 font-semibold">
@@ -134,6 +133,7 @@ const SignUp = () => {
                   onInputChange={handleChange}
                   labelFor="phone"
                   title="Phone"
+                  placeHolder="+91-999-888-7770"
                 />
                 {errors.phone && (
                   <p className="text-sm text-red-400 font-semibold">
@@ -148,7 +148,8 @@ const SignUp = () => {
                   inputvalue={""}
                   onInputChange={""}
                   labelFor="otp"
-                  title="Oto"
+                  title="Otp"
+                  placeHolder="o o o o o"
                 />
               </div>
             </div>
@@ -160,6 +161,7 @@ const SignUp = () => {
                 onInputChange={handleChange}
                 labelFor="email"
                 title="Email"
+                placeHolder="Enter e-mail here"
               />
               {errors.email && (
                 <p className="text-sm text-red-400 font-semibold">
@@ -175,6 +177,7 @@ const SignUp = () => {
                 onInputChange={handleChange}
                 labelFor="password"
                 title="Password"
+                placeHolder="o o o o o o o o"
               />
               {errors.password && (
                 <p className="text-sm text-red-400 font-semibold">
@@ -183,15 +186,54 @@ const SignUp = () => {
               )}
             </div>
 
-            <div className="flex flex-col items-center justify-end mt-4">
-              <Button>{isLoading ? "Submitting.." : "Sign up"}</Button>
+            <div className="flex gap-6 items-center px-2">
+              <input
+                className="h-8 w-8 rounded-full bg-darkRed1 border-darkRed1 text-darkRed2 focus:darkRed1"
+                type="checkbox"
+              />
+
+              <div className="flex flex-col">
+                <div className="flex gap-1">
+                  <p className="text-darkGrey1 text-center text-xl font-medium opacity-100">
+                    I agree to the{" "}
+                  </p>
+                  <Link
+                    className="text-darkRed1 text-center 
+                  text-xl font-medium 
+                   cursor-pointer"
+                  >
+                    Terms & Conditions
+                  </Link>
+                </div>
+
+                <div className="flex gap-1">
+                  <p className="text-darkGrey1 text-center text-xl font-medium  opacity-90">
+                    and{" "}
+                  </p>
+                  <Link
+                    className="text-darkRed1 text-center 
+                  text-xl font-medium 
+                   cursor-pointer"
+                  >
+                    Privacy Policy
+                  </Link>
+                </div>
+              </div>
+            </div>
+
+            <Button>{isLoading ? "Submitting.." : "Sign up"}</Button>
+            <p className="text-darkGrey2 text-center tracking-wide pt-14 text-xl md:text-2xl font-semibold opacity-90">
+              Already have an account ?{" "}
               <Link
-                className="text-end tracking-wider  text-sm font-medium py-4"
+                className="text-darkRed1 text-center 
+                    text-xl md:text-2xl  
+                    font-extrabold 
+                            underline cursor-pointer"
                 to="/login"
               >
-                Have an account login?
+                Log in
               </Link>
-            </div>
+            </p>
           </form>
         </div>
       </div>

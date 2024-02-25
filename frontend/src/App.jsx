@@ -6,7 +6,7 @@ function App() {
   return (
     <>
       <Toaster position="top-right" reverseOrder={false} />
-      <div className="my-2">
+      <div>
         <Outlet />
       </div>
     </>
